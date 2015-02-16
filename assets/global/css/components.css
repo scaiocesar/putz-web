@@ -1236,7 +1236,7 @@ Customized Bootstrap Buttons
 .btn-success {
   color: #fff;
   background-color: #AF0000;
-  border-color: #3ea49d;
+  border-color: #8e0000;
 }
 .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active {
   color: #fff;
@@ -1260,7 +1260,7 @@ Customized Bootstrap Buttons
 }
 .btn-success.disabled, .btn-success.disabled:hover, .btn-success.disabled:focus, .btn-success.disabled:active, .btn-success.disabled.active, .btn-success[disabled], .btn-success[disabled]:hover, .btn-success[disabled]:focus, .btn-success[disabled]:active, .btn-success[disabled].active, fieldset[disabled] .btn-success, fieldset[disabled] .btn-success:hover, fieldset[disabled] .btn-success:focus, fieldset[disabled] .btn-success:active, fieldset[disabled] .btn-success.active {
   background-color: #45B6AF;
-  border-color: #3ea49d;
+  border-color: #8e0000;
 }
 .btn-success .badge {
   color: #45B6AF;
