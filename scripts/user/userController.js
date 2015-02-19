@@ -23,11 +23,11 @@ app.factory('UserService', ['$resource',
 app.controller('UserCtrl', function ($scope, UserService, $resource) {
     $scope.registerUser = function(user) {
         UserService.create.save(user, function (response) {
-            alert(response.name);
+            alert("Cadastro Realizado com sucesso");
             $scope.user = '';
         }, function (failedResponse) {
             $scope.user = '';
-            alert("Usuario invalido!!");
+            alert("Erro ao cadastrar usuario");
         });
     }
 });
