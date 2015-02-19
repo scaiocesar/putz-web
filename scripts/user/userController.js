@@ -12,7 +12,7 @@
  */
 
 app.factory('UserService', ['$resource','Config',
-    function($resource) {
+    function($resource,Config) {
         return {
             create: $resource(Config.apiUrl+'/user/create')
         };
