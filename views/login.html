@@ -1,0 +1,53 @@
+<div class="login" ng-controller="LoginCtrl">
+  <div class="content">
+
+    <form ng-submit="login(user)" ng-controller="LoginCtrl">
+      <div class="logo">
+        <img src="images/logo.png"/>
+      </div>
+      <h3 class="form-title">ENTRAR</h3>
+
+      <div class="form-group">
+        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+        <label class="control-label visible-ie8 visible-ie9">E-MAIL</label>
+        <input class="form-control form-control-solid placeholder-no-fix"
+               type="text"
+               placeholder="E-MAIL"
+               ng-model="user.email"
+               name="email"/>
+      </div>
+      <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">SENHA</label>
+        <input class="form-control form-control-solid placeholder-no-fix"
+               type="password"
+               placeholder="SENHA"
+               ng-model="user.password"
+               name="password"/>
+      </div>
+      <div>
+        <div>
+          <button style="width: 100%" type="submit" ng-click="" class="btn btn-success uppercase">ACESSAR</button>
+        </div>
+        <label class="rememberme check">
+          <input type="checkbox" name="remember" value="1"/>LEMBRAR
+        </label>
+        <a href="javascript:;" id="forget-password" class="forget-password">Esqueceu a senha?</a>
+      </div>
+      <div class="create-account">
+        <button style="width: 100%" type="button" class="btn btn-register uppercase">inscreva-se</button>
+      </div>
+    </form>
+
+    <div class="copyright">
+      DC3 2015 © Todos os direitos reservados.
+    </div>
+  </div>
+</div>
+<!-- END PAGE LEVEL SCRIPTS -->
+<script>
+  jQuery(document).ready(function () {
+    Metronic.init(); // init metronic core components
+    Layout.init(); // init current layout
+    Login.init();
+  });
+</script>
