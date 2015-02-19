@@ -11,30 +11,22 @@
  * Controller of the putzApp
  */
 
-
-
-app.factory('UserService', ['$resource',
-  function($resource) {
+app.factory('LoginService', ['$resource','Config',
+  function($resource,Config) {
     return {
-      validate: $resource(rstAPI+'/login')
+      validate: $resource(Config.apiUrl+'/login/validate')
     };
   }]);
 
-app.controller('LoginCtrl', function ($scope, UserService, $resource) {
-
+app.controller('LoginCtrl', function ($scope, LoginService, $resource) {
   // do login
   $scope.login = function(user) {
-      UserService.validate.get(user, function (response) {
+    LoginService.validate.save(user, function (response) {
       alert(response.name);
       $scope.user = '';
     }, function (data, status) {
       $scope.user = '';
       alert("Usuario invalido!!");
     });
-  }
-
-  // Add user
-  $scope.addPlayer = function(user) {
-    $scope.players.push(user);
   }
 });
