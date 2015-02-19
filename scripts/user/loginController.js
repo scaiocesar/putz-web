@@ -11,21 +11,31 @@
  * Controller of the putzApp
  */
 
+//var rstAPI = "http://homologacao.aloingressos.com.br:8081/putz-rest/login";
+var rstAPI = "http://localhost:8080/putz-rest/login";
 
-app.factory("User", function ($resource) {
-  return $resource("http://homologacao.aloingressos.com.br:8081/putz-rest/login", {
-    validate: {method: 'GET'}
-  });
-});
+app.factory('User', ['$resource',
+  function($resource) {
+    return {
+      validate: $resource(rstAPI)
+    };
+  }]);
 
 app.controller('LoginCtrl', function ($scope, User, $resource) {
+
+  // do login
   $scope.login = function(user) {
-    User.get(user, function (response) {
+    User.validate.get(user, function (response) {
       alert(response.name);
       $scope.user = '';
-    }, function (failedResponse) {
+    }, function (data, status) {
       $scope.user = '';
-	  alert("Usuario invalido!!");
+      alert("Usuario invalido!!");
     });
+  }
+
+  // Add user
+  $scope.addPlayer = function(user) {
+    $scope.players.push(user);
   }
 });
