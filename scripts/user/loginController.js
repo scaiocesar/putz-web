@@ -25,7 +25,7 @@ app.controller('LoginCtrl', function ($scope, User, $resource) {
       $scope.user = '';
     }, function (failedResponse) {
       $scope.user = '';
-      alert(failedResponse);
+	  alert("Usuario invalido!!");
     });
   }
 });
