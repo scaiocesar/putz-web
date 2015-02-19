@@ -11,16 +11,15 @@
  * Controller of the putzApp
  */
 
-
-
-app.factory('UserService', ['$resource',
+app.factory('UserService', ['$resource','Config',
     function($resource) {
         return {
-            create: $resource(rstAPI+'/user')
+            create: $resource(Config.apiUrl+'/user/create')
         };
     }]);
 
 app.controller('UserCtrl', function ($scope, UserService, $resource) {
+  // create a new user.
     $scope.registerUser = function(user) {
         UserService.create.save(user, function (response) {
             alert("Cadastro Realizado com sucesso");
