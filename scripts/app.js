@@ -9,6 +9,9 @@
  * Main module of the application.
  */
 
+//var rstAPI = "http://homologacao.aloingressos.com.br:8081/putz-rest/";
+var rstAPI = "http://localhost:8080/putz-rest/";
+
 var app = angular
   .module('putzApp', [
     'ngAnimate',
@@ -26,9 +29,9 @@ var app = angular
         templateUrl: 'views/login.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .when('/register', {
+        templateUrl: 'views/register.html',
+        controller: 'UserCtrl'
       })
       .otherwise({
         redirectTo: '/'

@@ -11,21 +11,20 @@
  * Controller of the putzApp
  */
 
-//var rstAPI = "http://homologacao.aloingressos.com.br:8081/putz-rest/login";
-var rstAPI = "http://localhost:8080/putz-rest/login";
 
-app.factory('User', ['$resource',
+
+app.factory('UserService', ['$resource',
   function($resource) {
     return {
-      validate: $resource(rstAPI)
+      validate: $resource(rstAPI+'/login')
     };
   }]);
 
-app.controller('LoginCtrl', function ($scope, User, $resource) {
+app.controller('LoginCtrl', function ($scope, UserService, $resource) {
 
   // do login
   $scope.login = function(user) {
-    User.validate.get(user, function (response) {
+      UserService.validate.get(user, function (response) {
       alert(response.name);
       $scope.user = '';
     }, function (data, status) {
