@@ -23,7 +23,7 @@ app.controller('LoginCtrl', function ($scope, LoginService, $resource, $location
   // do login
   $scope.login = function (user) {
     LoginService.validate.save(user, function (response) {
-      alert(response.name);
+      alert("Bem vindo "+response.name+"\nvoçe está logado no Putz!!");
       $scope.user = '';
     }, function (data, status) {
       $scope.user = '';
