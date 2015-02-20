@@ -11,21 +11,19 @@
  * Controller of the putzApp
  */
 
-
-
-app.factory('UserService', ['$resource',
-  function($resource) {
+app.factory('LoginService', ['$resource', 'Config',
+  function ($resource, Config) {
     return {
-      validate: $resource(rstAPI+'/login')
+      validate: $resource(Config.apiUrl + 'login/validate'),
+      retrievePassword: $resource(Config.apiUrl + 'login/retrievePassword')
     };
   }]);
 
-app.controller('LoginCtrl', function ($scope, UserService, $resource) {
-
+app.controller('LoginCtrl', function ($scope, LoginService, $resource, $location) {
   // do login
-  $scope.login = function(user) {
-      UserService.validate.get(user, function (response) {
-      alert(response.name);
+  $scope.login = function (user) {
+    LoginService.validate.save(user, function (response) {
+      alert("Bem vindo "+response.name+"\nvocê está logado no Putz!!");
       $scope.user = '';
     }, function (data, status) {
       $scope.user = '';
@@ -33,8 +31,16 @@ app.controller('LoginCtrl', function ($scope, UserService, $resource) {
     });
   }
 
-  // Add user
-  $scope.addPlayer = function(user) {
-    $scope.players.push(user);
+  // forget password
+  $scope.retrievePassword = function (user) {
+    LoginService.retrievePassword.get(user, function (response) {
+      alert("Senha enviada com sucesso!!\nSenha: "+response.password);
+      $scope.user = '';
+      // set login path
+      $location.path('/');
+    }, function (data, status) {
+      $scope.user = '';
+      alert("E-mail não cadastrado");
+    });
   }
 });

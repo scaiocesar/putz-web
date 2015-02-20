@@ -27,13 +27,23 @@ var app = angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/login.html',
-        controller: 'MainCtrl'
+        controller: 'LoginCtrl'
       })
       .when('/register', {
         templateUrl: 'views/register.html',
         controller: 'UserCtrl'
       })
-      .otherwise({
-        redirectTo: '/'
+      .when('/forget_password', {
+        templateUrl: 'views/forget_password.html',
+        controller: 'LoginCtrl'
       });
   });
+
+
+app.constant('Config', {
+  appName: 'Putz não vou!!',
+  appVersion: 1.0,
+  apiUrl: 'http://homologacao.aloingressos.com.br:8081/putz-rest/'
+  //apiUrl: 'http://localhost:8080/putz-rest/'
+});
+
