@@ -34,7 +34,7 @@ app.controller('LoginCtrl', function ($scope, LoginService, $resource, $location
   // forget password
   $scope.retrievePassword = function (user) {
     LoginService.retrievePassword.get(user, function (response) {
-      alert("Senha enviada com sucesso!!<br> Senha:"+user.password);
+      alert("Senha enviada com sucesso!!\nSenha: "+response.password);
       $scope.user = '';
       // set login path
       $location.path('/');
