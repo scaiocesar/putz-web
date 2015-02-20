@@ -1,6 +1,10 @@
 <div class="login" ng-controller="UserCtrl">
     <div class="content">
         <form  ng-submit="registerUser(user)">
+            <div class="logo">
+                <img src="images/logo.png"/>
+            </div>
+
             <h3>Inscreva-se</h3>
 
             <p class="hint">
@@ -15,6 +19,11 @@
                 <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
                 <label class="control-label visible-ie8 visible-ie9">Email</label>
                 <input class="form-control placeholder-no-fix" type="text" placeholder="Email" ng-model="user.email" required/>
+            </div>
+            <div class="form-group">
+                <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                <label class="control-label visible-ie8 visible-ie9">Celular</label>
+                <input class="form-control placeholder-no-fix" type="text" placeholder="Celular" ng-model="user.phone"  required/>
             </div>
             <div class="form-group">
                 <label class="control-label visible-ie8 visible-ie9">Estado</label>
@@ -65,10 +74,9 @@
             </div>
             <div class="form-group margin-top-20 margin-bottom-20">
                 <label class="check">
-                    <input type="checkbox" name="tnc"/> I agree to the <a href="#">
-                    Terms of Service </a>
-                    & <a href="#">
-                    Privacy Policy </a>
+                    <input type="checkbox" name="tnc" required>Eu li e concordo com os <a href="#">
+                    Termos de Serviço </a>
+
                 </label>
 
                 <div id="register_tnc_error">

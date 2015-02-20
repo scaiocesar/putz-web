@@ -16,7 +16,9 @@
 app.factory('UserService', ['$resource',
     function($resource) {
         return {
-            create: $resource(rstAPI+'/user')
+            //create: $resource(rstAPI+'/user')
+            create: $resource('http://localhost:8080/putz-rest/user')
+
         };
     }]);
 
