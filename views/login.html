@@ -14,7 +14,8 @@
                type="text"
                placeholder="E-MAIL"
                ng-model="user.email"
-               name="email"/>
+               name="email"
+               required>
       </div>
       <div class="form-group">
         <label class="control-label visible-ie8 visible-ie9">SENHA</label>
@@ -22,7 +23,8 @@
                type="password"
                placeholder="SENHA"
                ng-model="user.password"
-               name="password"/>
+               name="password"
+               required/>
       </div>
       <div>
         <div>
@@ -33,7 +35,7 @@
         </label>
         <a href="#/forget_password" class="forget-password">Esqueceu a senha?</a>
       </div>
-        <a href="#/register" style="width: 100%" class="btn btn-register uppercase" >inscreva-se</a>
+      <a href="#/register" style="width: 100%" class="btn btn-register uppercase">inscreva-se</a>
     </form>
 
     <div class="copyright">
