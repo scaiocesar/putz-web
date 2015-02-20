@@ -11,22 +11,24 @@
  * Controller of the putzApp
  */
 
-app.factory('UserService', ['$resource','Config',
-    function($resource,Config) {
-        return {
-            create: $resource(Config.apiUrl+'/user/create')
-        };
-    }]);
+app.factory('UserService', ['$resource', 'Config',
+  function ($resource, Config) {
+    return {
+      create: $resource(Config.apiUrl + 'user/create')
+    };
+  }]);
 
-app.controller('UserCtrl', function ($scope, UserService, $resource) {
+app.controller('UserCtrl', function ($scope, UserService, $resource, $location) {
   // create a new user.
-    $scope.registerUser = function(user) {
-        UserService.create.save(user, function (response) {
-            alert("Cadastro Realizado com sucesso");
-            $scope.user = '';
-        }, function (failedResponse) {
-            $scope.user = '';
-            alert("Erro ao cadastrar usuario");
-        });
-    }
+  $scope.registerUser = function (user) {
+    UserService.create.save(user, function (response) {
+      alert("Cadastro Realizado com sucesso");
+      $scope.user = '';
+      // set login path
+      $location.path('/');
+    }, function (failedResponse) {
+      $scope.user = '';
+      alert("Erro ao cadastrar usuario");
+    });
+  }
 });
